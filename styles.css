@@ -6,11 +6,11 @@
 }
 
 :root {
-    --text: #18141f;
-    --background: #eceaf1;
-    --primary: #322b40;
-    --secondary: #d6d1e0;
-    --accent: #6b5c8a;
+    --text: #171412;
+    --background: #f8f7f6;
+    --primary: #d3d1c5;
+    --secondary: #d7dde0;
+    --accent: #666a85;
     --container-width: 1200px;
 }
 
@@ -40,12 +40,12 @@ body {
 
 .main  {
     justify-self: center;
-
     display: flex;
     flex-direction: column;
     justify-content: stretch;
     gap: 1rem;
     width: 100vw;
+    overflow: auto;
     max-width: var(--container-width);
     background-color: var(--secondary);
     align-items: center;
@@ -56,7 +56,7 @@ body {
 .footer {
     text-align: center;
     padding: 1rem;
-    background-color: var(--secondary);
+    background-color: var(--background);
 }
 
 .books {
@@ -93,12 +93,16 @@ button:hover {
 
 button.add-book {
     font-weight: bold;
-    background-color: var(--background);
+    background-color: var(--secondary);
 }
 
 button.remove {
     background-color: var(--accent);
     color: var(--background)
+}
+
+button.read {
+    background-color: var(--primary);
 }
 
 .book p {
