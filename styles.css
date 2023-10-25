@@ -1,0 +1,94 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Roboto", sans-serif;
+}
+
+:root {
+    --text: #1b1609;
+    --background: #faf7f0;
+    --primary: #91a5d9;
+    --secondary: #cec6eb;
+    --accent: #3b93ab;
+    --container-width: 1200px;
+}
+
+body {
+    color: var(--text);
+    height: 100vh;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    background-color: var(--secondary);
+}
+
+.header {
+    font-size: 3rem;
+    font-weight: bold;
+    background-color: var(--background);
+    padding: 1rem;
+    display: flex;
+    justify-content: center;
+
+}
+
+.heading {
+    max-width: var(--container-width);
+    flex: 1;
+}
+
+.main  {
+    justify-self: center;
+    width: 100vw;
+    max-width: var(--container-width);
+    background-color: var(--secondary);
+    align-items: center;
+    padding: 1rem;
+    gap: 1rem;
+}
+
+.footer {
+    text-align: center;
+    padding: 1rem;
+    background-color: var(--secondary);
+}
+
+.books {
+    max-width: var(--container-width);
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 1rem;
+    grid-template-rows: auto;
+}
+
+.book {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+
+    font-size: 1.2rem;
+    background-color: var(--background);
+    padding: 1rem;
+    border-radius: 0.25rem;
+}
+
+button {
+    font-size: 1.2rem;
+    border: none;
+    border-radius: .25rem;
+    padding: 0.5rem 1.5rem;
+}
+
+button:hover {
+    cursor: pointer;
+    filter: brightness(90%);
+}
+
+button.add-book {
+    font-weight: bold;
+    background-color: var(--secondary);
+}
+
+.book p {
+    text-align: center;
+}
