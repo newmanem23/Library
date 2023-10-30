@@ -3,13 +3,26 @@ const myLibrary = [];
 const theHobbit = new Book("The Hobbit", "J.R.R. Tolkien", 300, "Yes")
 myLibrary.push(theHobbit)
 const books = document.getElementById('books')
+const addBookBtn = document.querySelector('.add-book')
+const modal = document.querySelector('#book-dialog')
+const modalClose = document.querySelector('#modal-close')
 updateLibrary(myLibrary)
+
+addBookBtn.addEventListener("click", () => {
+    modal.showModal();
+  });
+
+modalClose.addEventListener("click", () => {
+    modal.close();
+});
 
 function updateLibrary(library) {
     for (let book of library) {
         createBookCard(book)
     }
 }
+
+
 
 function Book(title, author, numPages, read) {
     this.title = title
