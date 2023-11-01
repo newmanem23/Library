@@ -33,7 +33,6 @@ bookForm.addEventListener("submit", (e) => {
 
 
 // Functions
-
 function updateLibrary(library) {
     books.innerHTML = '';
     for (const [index, book] of library.entries()) {
@@ -72,7 +71,10 @@ function createBookCard(book, index) {
 
     // Add event listeners for buttons
     readBtn.addEventListener("click", (e) => {
-        toggleRead(e)
+        toggleRead(e);
+    });
+    removeBtn.addEventListener("click", (e) => {
+        removeBook(e);
     });
     
     // Assemble element and children
@@ -103,5 +105,11 @@ function addBook() {
 function toggleRead(e) {
     const bookIndex = e.srcElement.dataset.index;
     myLibrary[bookIndex].read = !myLibrary[bookIndex].read;
+    updateLibrary(myLibrary);
+}
+
+function removeBook(e) {
+    const bookIndex = e.srcElement.dataset.index;
+    myLibrary.splice(bookIndex, 1);
     updateLibrary(myLibrary);
 }
