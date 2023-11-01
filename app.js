@@ -22,8 +22,6 @@ function updateLibrary(library) {
     }
 }
 
-
-
 function Book(title, author, numPages, read) {
     this.title = title
     this.author = author

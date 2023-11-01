@@ -121,8 +121,3 @@ dialog[open] {
     flex-direction: column;
     gap: 0.5rem;
   }
-
-
-dialog::backdrop {
-    opacity: 25%;
-}
