@@ -104,13 +104,17 @@ button.read {
     background-color: var(--primary);
 }
 
+button.unread {
+    background-color: rgb(244, 155, 155);
+}
+
 .book p {
     text-align: center;
 }
 
 dialog[open] {
     border: none;
-    padding: 1rem;
+    padding: 1.5rem 2rem;
     border-radius: 0.5rem;
     position: absolute;
     float: left;
@@ -140,4 +144,8 @@ dialog[open] {
     text-align: center;
     font-size: 1rem;
     font-weight: bold;
+  }
+
+  dialog button {
+    width: 100%;
   }

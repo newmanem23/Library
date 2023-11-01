@@ -22,15 +22,16 @@
     </div>
     <dialog id="book-dialog">
             <p>Add New Book</p>
-            <form action="">
-                <input type="text" id="title" placeholder="Title">
-                <input type="text" id="author" placeholder="Author">
-                <input type="number" placeholder="# of Pages">
+            <form id="book-form" action="">
+                <input type="text" name="title" id="title" placeholder="Title" required>
+                <input type="text" name="author" id="author" placeholder="Author" required>
+                <input type="number" name="numPages" placeholder="# of Pages" required>
                 <div>
                     <label for="check-read">Have you read it?</label>
-                    <input type="checkbox" id="check-read">
+                    <input type="checkbox" name="check-read" id="check-read">
                 </div>
-                <button id="modal-close">Close</button>
+                <button type="submit" id="submit-book">Add</button>
+                <button type="button" id="modal-close">Close</button>
             </form>
     </dialog>
     <div class="footer">Copyright &copy; Ed Newman 2023</div>
