@@ -101,7 +101,7 @@ button.remove {
 }
 
 button.read {
-    background-color: var(--primary);
+    background-color: lightgreen;
 }
 
 button.unread {

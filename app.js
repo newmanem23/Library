@@ -2,25 +2,28 @@
 const myLibrary = [];
 
 // Page Elements
-const books = document.getElementById('books')
-const addBookBtn = document.querySelector('.add-book')
-const modal = document.querySelector('#book-dialog')
-const modalCloseBtn = document.querySelector('#modal-close')
-const bookForm = document.querySelector('#book-form')
+const books = document.getElementById('books');
+const addBookBtn = document.querySelector('.add-book');
+const modal = document.querySelector('#book-dialog');
+const modalCloseBtn = document.querySelector('#modal-close');
+const bookForm = document.querySelector('#book-form');
 
-// Test code to add a book to the page
-// const theHobbit = new Book("The Hobbit", "J.R.R. Tolkien", 300, false)
-// myLibrary.push(theHobbit)
-// updateLibrary(myLibrary)
+// Objects
+function Book(title, author, numPages, read) {
+    this.title = title;
+    this.author = author;
+    this.numPages = numPages;
+    this.read = read;
+}
 
-// User Interface Listeners
+// User Interface
 addBookBtn.addEventListener("click", () => {
     modal.showModal();
   });
 
 modalCloseBtn.addEventListener("click", () => {
     modal.close();
-    bookForm.reset()
+    bookForm.reset();
 });
 
 bookForm.addEventListener("submit", (e) => {
@@ -30,21 +33,15 @@ bookForm.addEventListener("submit", (e) => {
 
 
 // Functions
+
 function updateLibrary(library) {
     books.innerHTML = '';
-    for (let book of library) {
-        createBookCard(book);
+    for (const [index, book] of library.entries()) {
+        createBookCard(book, index);
     }
 }
 
-function Book(title, author, numPages, read) {
-    this.title = title
-    this.author = author
-    this.numPages = numPages
-    this.read = read
-}
-
-function createBookCard(book) {
+function createBookCard(book, index) {
     // Create elements
     const bookCard = document.createElement('div')
     const title = document.createElement('p')
@@ -60,6 +57,9 @@ function createBookCard(book) {
     removeBtn.textContent = "Remove"
     bookCard.classList.add('book')
     removeBtn.classList.add('remove')
+
+    readBtn.dataset.index = index;
+    removeBtn.dataset.index=index;
     
     if (book.read === true){
         readBtn.textContent = "Read"
@@ -74,7 +74,6 @@ function createBookCard(book) {
     readBtn.addEventListener("click", (e) => {
         toggleRead(e)
     });
-    removeBtn.addEventListener()
     
     // Assemble element and children
     bookCard.appendChild(title)
@@ -86,14 +85,23 @@ function createBookCard(book) {
 }
 
 function addBook() {
+    // Get form element values
     const formElements = bookForm.elements;
     const title = formElements["title"].value;
     const author = formElements["author"].value;
     const numPages = formElements["numPages"].value;
     const read = formElements["check-read"].checked;
+    // Add book to the array
     const newBook = new Book(title, author, numPages, read);
     myLibrary.push(newBook)
+    // Close and reset the form, and re-render the book grid
     modal.close();
     bookForm.reset();
+    updateLibrary(myLibrary);
+}
+
+function toggleRead(e) {
+    const bookIndex = e.srcElement.dataset.index;
+    myLibrary[bookIndex].read = !myLibrary[bookIndex].read;
     updateLibrary(myLibrary);
 }
