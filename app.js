@@ -25,19 +25,7 @@ modalCloseBtn.addEventListener("click", () => {
 
 bookForm.addEventListener("submit", (e) => {
     e.preventDefault();
-    const formElements = bookForm.elements;
-    const title = formElements["title"].value;
-    const author = formElements["author"].value;
-    const numPages = formElements["numPages"].value;
-    const read = formElements["check-read"].checked;
-
-    const newBook = new Book(title, author, numPages, read);
-    console.log(newBook);
-    myLibrary.push(newBook)
-    console.log(bookForm.elements["check-read"].checked)
-    modal.close();
-    bookForm.reset();
-    updateLibrary(myLibrary);
+    addBook();
 });
 
 
@@ -81,6 +69,12 @@ function createBookCard(book) {
         readBtn.textContent = "Not Read";
         readBtn.classList.add('unread')
     }
+
+    // Add event listeners for buttons
+    readBtn.addEventListener("click", (e) => {
+        toggleRead(e)
+    });
+    removeBtn.addEventListener()
     
     // Assemble element and children
     bookCard.appendChild(title)
@@ -91,7 +85,15 @@ function createBookCard(book) {
     books.appendChild(bookCard)
 }
 
-function addBook(event) {
-
-
+function addBook() {
+    const formElements = bookForm.elements;
+    const title = formElements["title"].value;
+    const author = formElements["author"].value;
+    const numPages = formElements["numPages"].value;
+    const read = formElements["check-read"].checked;
+    const newBook = new Book(title, author, numPages, read);
+    myLibrary.push(newBook)
+    modal.close();
+    bookForm.reset();
+    updateLibrary(myLibrary);
 }
