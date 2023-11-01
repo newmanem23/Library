@@ -72,10 +72,16 @@ body {
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
-
+    justify-content: space-between;
     background-color: var(--background);
     padding: 1rem;
     border-radius: 0.5rem;
+}
+
+.button-container {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
 }
 
 button {

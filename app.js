@@ -46,6 +46,7 @@ function createBookCard(book, index) {
     const title = document.createElement('p')
     const author = document.createElement('p')
     const numPages = document.createElement('p')
+    const buttonContainer = document.createElement('div')
     const readBtn = document.createElement('button')
     const removeBtn = document.createElement('button')
 
@@ -56,6 +57,7 @@ function createBookCard(book, index) {
     removeBtn.textContent = "Remove"
     bookCard.classList.add('book')
     removeBtn.classList.add('remove')
+    buttonContainer.classList.add('button-container')
 
     readBtn.dataset.index = index;
     removeBtn.dataset.index=index;
@@ -81,8 +83,9 @@ function createBookCard(book, index) {
     bookCard.appendChild(title)
     bookCard.appendChild(author)
     bookCard.appendChild(numPages)
-    bookCard.appendChild(readBtn)
-    bookCard.appendChild(removeBtn)
+    bookCard.appendChild(buttonContainer)
+    buttonContainer.appendChild(readBtn)
+    buttonContainer.appendChild(removeBtn)
     books.appendChild(bookCard)
 }
 
