@@ -34,7 +34,9 @@ bookForm.addEventListener("submit", (e) => {
 
 // Functions
 function updateLibrary(library) {
+    // Clear the book grid
     books.innerHTML = '';
+    // Loop through library and generate book cards for each book.
     for (const [index, book] of library.entries()) {
         createBookCard(book, index);
     }
@@ -59,8 +61,9 @@ function createBookCard(book, index) {
     removeBtn.classList.add('remove')
     buttonContainer.classList.add('button-container')
 
+    // Assign book index to the buttons for use later
     readBtn.dataset.index = index;
-    removeBtn.dataset.index=index;
+    removeBtn.dataset.index = index;
     
     if (book.read === true){
         readBtn.textContent = "Read"
